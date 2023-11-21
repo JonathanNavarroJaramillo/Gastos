@@ -8,10 +8,24 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 
 def reconocer_voz():
-    # ... (código para reconocer voz)
+     recognizer = sr.Recognizer()
+     with sr.Microphone() as source:
+        print("Hable ahora para registrar el gasto:")
+        recognizer.adjust_for_ambient_noise(source)
+        audio = recognizer.listen(source)
 
+     try:
+        texto = recognizer.recognize_google(audio, language="es-ES")
+        return texto
+     except sr.UnknownValueError:
+        return None
 def registrar_gasto():
-    # ... (código que registra el gasto)
+    gasto = input("Ingrese el gasto por texto: ")
+    return {"Fecha": datetime.now(), "Descripción": gasto}
+
+def exportar_a_excel(datos):
+    # ... (cdigo para generar informe)
+  
 
 def exportar_a_excel(datos):
     # ... (código para exportar a excel)
@@ -20,7 +34,8 @@ def generar_resumen_pdf(datos):
     # ... (cdigo para generar informe)
 
 def generar_grafico(datos):
-    # ... (utilizar matplotlib para generar gráficos)
+    # ... (cdigo para generar informe)
+
 
 def main():
     registros = []

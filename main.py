@@ -24,10 +24,6 @@ def registrar_gasto():
     return {"Fecha": datetime.now(), "Descripción": gasto}
 
 def exportar_a_excel(datos):
-    # ... (cdigo para generar informe)
-  
-
-def exportar_a_excel(datos):
     # ... (código para exportar a excel)
 
 def generar_resumen_pdf(datos):
